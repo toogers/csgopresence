@@ -4,6 +4,9 @@
 	"description": "show your csgo game status in discord",
 	"main": "main.js",
 	"bin": "main.js",
+	"pkg": {
+		"assets": "*.html"
+	},
 	"scripts": {
 		"start": "node main.js",
 		"test": "echo \"Error: no test specified\" && exit 1"

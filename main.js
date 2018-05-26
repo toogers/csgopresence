@@ -48,15 +48,20 @@ function updatePresence(jsonstr) {
 	if (json.player.activity == "menu") {
 		state = "In the menus.";
 		largeImageKey = "csgo";
+		smallImageKey = "tct";
 	} else if (json.player.activity == "playing") {
-		state = "Playing " + fixStr(json.map.mode) + " on " + fixStr(json.map.name.split("_")[1]);
-		largeImageKey = json.map.name;
+		state = `[${json.player.clan}] ${json.player.name} is playing ${fixStr(json.map.mode)} on ${fixStr(json.map.name.split("_")[1])}`;
+		details = `Score: ${json.player.match_stats.score}`;
+		largeImageKey = "csgo";
+		smallImageKey = json.map.name;
 	} else if (json.player.activity == "textinput") {
 		state = "Typing...";
 		largeImageKey = "csgo";
+		smallImageKey = "tct";
 	} else {
 		state = "In an unknown place!";
 		largeImageKey = "csgo";
+		smallImageKey = "tct";
 	}
 
 	client.updatePresence({
