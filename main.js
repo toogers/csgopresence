@@ -1,6 +1,7 @@
 const client = require("discord-rich-presence")("423856039071449088");
 const http = require("http");
 const fs = require("fs");
+const path = require("path");
 const port = "4899";
 const host = "127.0.0.1";
 const g894 = Math.floor(Math.random() * Math.floor(133769));
@@ -27,11 +28,11 @@ server = http.createServer(function(req, res) {
 		});
 	} else {
 		res.writeHead(200, {"Content-Type": "text/html"});
-		fs.readFile("default.html", "utf8", function(err, data) {
+		fs.readFile(path.join(__dirname, "default.html"), "utf8", function(err, data) {
 			if (err) {
 				res.end("<html><body>report this error on <a href='https://github.com/toogers/csgopresence'>github</a></body></html>");
 			} else {
-				res.end(data.replace("%g894", g894));
+				res.end(data.replace("%g894", g894).replace(/\t/g, "").replace(/\r?\n|\r/g, ""));
 			}
 		});
 	}
