@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>csgopresence</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#FFA500">
+
+	<style>
+	code {
+		background-color: #282828;
+		padding: 5px;
+		border-radius: 5px;
+		color: lawngreen;
+	}
+
+	.stopped {
+		color: red;
+	}
+
+	.stop {
+		background-color: #282828;
+		border: none;
+		border-radius: 5px;
+		padding: 5px;
+		color: #EEE;
+	}
+</style>
+<script>
+	function stop() {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				document.getElementById("stop").innerHTML = "<span class='stopped'>csgopresence stopped.</span>";
+			}
+		};
+		xhttp.open("POST", "http://127.0.0.1:4899", true);
+		xhttp.send("stop_cg894%g894");
+	}
+</script>
+</head>
+<body>
+	<center>
+		<div class="container">
+			<h1>csgopresence</h1>
+			<div class="jumbotron">
+				<h2>hello, welcome to csgopresence.</h2>
+				<p><a href="steam://rungameid/740">launch your game</a> to start!</p>
+				<p>be sure to run <code>node setup.js</code> command first!</p>
+				<div id="stop">
+					<button onclick="stop();" class="stop">Stop csgopresence</button>
+				</div>
+			</div>
+			<a href="https://github.com/toogers/csgopresence"><img style="float:right;" alt="github" src="https://tooger.xyz/assets/img/github.svg" width="32" height="32"></a>
+			<a href="https://tooger.xyz/csgopresence/"><img style="float:right;" alt="website" src="https://tooger.xyz/assets/img/website.svg" width="32" height="32"></a>
+		</div>
+	</center>
+</body>
+</html>
